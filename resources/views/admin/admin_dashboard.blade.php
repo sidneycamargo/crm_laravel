@@ -12,6 +12,8 @@
 	<link href="{{ asset('backend') }}/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
 	<link href="{{ asset('backend') }}/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
 	<link href="{{ asset('backend') }}/assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet"/>
+	<link href="{{ asset('backend') }}/assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+
 	<!-- loader-->
 	<link href="{{ asset('backend') }}/assets/css/pace.min.css" rel="stylesheet"/>
 	<script src="{{ asset('backend') }}/assets/js/pace.min.js"></script>
@@ -21,11 +23,15 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<link href="{{ asset('backend') }}/assets/css/app.css" rel="stylesheet">
 	<link href="{{ asset('backend') }}/assets/css/icons.css" rel="stylesheet">
+
+	<!-- Awesome Icons -->
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
 	<!-- Theme Style CSS -->
 	<link rel="stylesheet" href="{{ asset('backend') }}/assets/css/dark-theme.css"/>
 	<link rel="stylesheet" href="{{ asset('backend') }}/assets/css/semi-dark.css"/>
 	<link rel="stylesheet" href="{{ asset('backend') }}/assets/css/header-colors.css"/>
-	<title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+	<title>CRM - BeC</title>
 </head>
 
 <body>
@@ -158,18 +164,23 @@
 	<script src="{{ asset('backend') }}/assets/js/bootstrap.bundle.min.js"></script>
 	<!--plugins-->
 	<script src="{{ asset('backend') }}/assets/js/jquery.min.js"></script>
-	<script src="{{ asset('backend') }}/assets/plugins/simplebar/js/simplebar.min.js"></script>
+	<script src="{{ asset('backend') }}/assets/plugins/simplebar/js/simplebar.min.js"></script> 
 	<script src="{{ asset('backend') }}/assets/plugins/metismenu/js/metisMenu.min.js"></script>
-	<script src="{{ asset('backend') }}/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+	<script src="{{ asset('backend') }}/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script> 
 	<script src="{{ asset('backend') }}/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
 	<script src="{{ asset('backend') }}/assets/plugins/chartjs/js/chart.js"></script>
-	<script src="{{ asset('backend') }}/assets/js/index.js"></script>
+	
+	<!-- Page Script-->
+	@yield('script')
+
 	<!--app JS-->
 	<script src="{{ asset('backend') }}/assets/js/app.js"></script>
+	<!-- 
 	<script>
 		new PerfectScrollbar(".app-container")
 	</script>
+	-->
 </body>
 
 </html>
