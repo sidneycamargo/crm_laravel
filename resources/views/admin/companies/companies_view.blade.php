@@ -49,6 +49,9 @@
                     <tbody>
                     @foreach ($companies as $item)
                         <tr>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->fantasy }}</td>
+                            <td>{{ $item->CNPJ}}</td>
                             <td class="d-flex">
                                 <form action="{{ route('admin.companies.edit', $item->id)}}" method="get">
                                     @csrf
@@ -60,9 +63,6 @@
                                     <button class="ms-2 btn btn-danger lni lni-trash"></button>
                                 </form>
                             </td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->fantasy }}</td>
-                            <td>{{ $item->CNPJ}}</td>
                         </tr>
                     @endforeach
                     </tbody>
