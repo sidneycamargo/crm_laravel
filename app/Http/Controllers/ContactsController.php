@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\contact;
+use App\Models\Tbl_contact;
 use Illuminate\Http\Request;
 
 class ContactsController extends Controller
@@ -12,11 +12,22 @@ class ContactsController extends Controller
 
         $company = 1;
 
-        $contacts = Contact::all();
+        $contacts = Tbl_contact::all();
 
         return view('admin.contacts.contacts_view', compact('contacts'));
         // return view('admin.contacts.contacts_view', compact($contacts));
     
+    }
+
+    public function contactsAdd() {
+        echo "Contacts Add";
+    }
+
+    public function contactsEdit() {
+
+        $company = 1;
+
+        echo "Contacts Edit";
     }
 
     public function contactsDestroy(Request $request) {
@@ -25,7 +36,7 @@ class ContactsController extends Controller
 
         $id = $request->id;
 
-        Contact::destroy($id);
+        Tbl_contact::destroy($id);
 
         $request->session()
             ->flash(

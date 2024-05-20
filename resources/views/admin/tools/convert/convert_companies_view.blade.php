@@ -10,14 +10,14 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Table</li>
+                    <li class="breadcrumb-item active" aria-current="page">Convert for Data Companies</li>
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
-            <form action="{{ route('admin.contacts.add') }}" method="post">
+            <form action="{{ route('admin.convert.companies.execute') }}" method="post">
                 @csrf
-                <button type="submit" class="btn btn-success">Add</button>
+                <button type="submit" class="btn btn-success">Execute</button>
             </form>
             <div class="btn-group">
                 <button type="button" class="btn btn-primary">Settings</button>
@@ -32,7 +32,7 @@
         </div>
     </div>
     <!--end breadcrumb-->
-    <h6 class="mb-0 text-uppercase">DataTable Example</h6>
+    <h6 class="mb-0 text-uppercase">Companies</h6>
     <hr/>
     <div class="card">
         <div class="card-body">
@@ -40,41 +40,25 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Operações</th>
-                            <th>CPF</th>
                             <th>Name</th>
-                            <th>Phone</th>
-                            <th>E-mail</th>
+                            <th>Fantasy</th>
+                            <th>CNPJ</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach ($contacts as $item)
+                    @foreach ($companies as $item)
                         <tr>
-                            <td class="d-flex">
-                                <form action="{{ route('admin.contacts.edit', $item->id)}}" method="get">
-                                    @csrf
-                                    <button class="btn btn-warning lni lni-pencil-alt"></button>
-                                </form>
-                                <form action="{{ route('admin.contacts.delete', $item->id)}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="ms-2 btn btn-danger lni lni-trash"></button>
-                                </form>
-                            </td>
-                            <td>{{ $item->document_itin}}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->phone }}</td>
-                            <td>{{ $item->email}}</td>
+                            <td>{{ $item->cmpn_name }}</td>
+                            <td>{{ $item->cmpn_fantasy }}</td>
+                            <td>{{ $item->cmpn_cnpj}}</td>
                         </tr>
                     @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Operações</th>
-                            <th>CPF</th>
                             <th>Name</th>
-                            <th>Phone</th>
-                            <th>E-mail</th>
+                            <th>Fantasy</th>
+                            <th>CNPJ</th>
                         </tr>
                     </tfoot>
                 </table>

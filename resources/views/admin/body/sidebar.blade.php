@@ -62,6 +62,30 @@
 
 				<li>
 					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class='bx bxs-data'></i>
+						</div>
+						<div class="menu-title">Settings</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('admin.companies.view') }}"><i class='bx bxs-contact'></i>Companies</a>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class='bx bxs-data'></i>
+						</div>
+						<div class="menu-title">Tools</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('admin.convert.companies.view') }}"><i class='bx bxs-contact'></i>Companies</a>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
 						<div class="menu-title">Application</div>
