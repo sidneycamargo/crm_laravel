@@ -16,9 +16,11 @@ class CompaniesTableSeeder extends Seeder
         $old_companys = Tbl_company_old::all();
         
         foreach ($old_companys as $company) {
-            DB::table('tbl_companies')->insert([
+            DB::table('tbl_companies')->insert(
                 // Admin
                 [
+
+                    'tbl_company_id' => 1,
                     'id' => $company->company_id,
                     'cnpj' => $company->cmpn_cnpj,
                     'name' => $company->cmpn_name,
@@ -27,8 +29,8 @@ class CompaniesTableSeeder extends Seeder
                     'created_at' => $company->created_at,
                     'updated_at' => $company->updated_at,
                 ]
-            ]);
-            }
+            );
+        }
     }
 }
 

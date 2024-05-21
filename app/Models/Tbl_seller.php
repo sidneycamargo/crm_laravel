@@ -19,7 +19,8 @@ class Tbl_seller extends Model
         'company_id',
         'name',
         'login',
-        'email'
+        'email',
+        'tbl_company_id'
     ];
 
     public function company() {
