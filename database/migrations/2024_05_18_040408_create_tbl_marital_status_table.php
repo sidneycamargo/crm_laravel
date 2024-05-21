@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('tbl_marital_status', function (Blueprint $table) {
             $table->id();
+            $table->string('masculine_name');
+            $table->string('female_name');
+
             $table->timestamps();
+
+            // Foreign Keys / Chaves estrangeiras
+            $table->foreignid('tbl_company_id')->constrained();
         });
     }
 
