@@ -11,11 +11,13 @@ class Tbl_seller_old extends Model
     
     protected $connection = "mysql_old";
     protected $table = "tbl_sellers";
-    protected $primaryKey = "id";
+    protected $primaryKey = "sellers_id";
 
     protected $fillable = [
-        'id',
-        'name'
+        'sellers_id',
+        'sellers_name',
+        'sellers_login',
+        'sellers_email'
     ];
 
 }

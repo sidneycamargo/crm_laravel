@@ -9,7 +9,18 @@ class Tbl_seller extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    //protected $guarded = [];
+    protected $connection = "mysql_old";
+    protected $table = "tbl_sellers";
+    protected $primaryKey = "sellers_id";
+
+    protected $fillable = [
+        'id',
+        'company_id',
+        'name',
+        'login',
+        'email'
+    ];
 
     public function company() {
 

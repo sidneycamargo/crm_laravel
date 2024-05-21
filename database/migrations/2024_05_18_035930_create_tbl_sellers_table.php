@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('email')->nullable();
 
             $table->timestamps();
+
+            // Foreign Keys / Chaves estrangeiras
+            $table->foreignid('tbl_company_id')->constrained();
+
+
         });
     }
 
