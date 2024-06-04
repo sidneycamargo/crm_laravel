@@ -19,8 +19,6 @@ class CompaniesTableSeeder extends Seeder
             DB::table('tbl_companies')->insert(
                 // Admin
                 [
-
-                    'tbl_company_id' => 1,
                     'id' => $company->company_id,
                     'cnpj' => $company->cmpn_cnpj,
                     'name' => $company->cmpn_name,
