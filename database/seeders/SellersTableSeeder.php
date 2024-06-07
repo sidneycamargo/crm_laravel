@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Facades\DB;
 use App\Models\Tbl_seller_old;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 
 class SellersTableSeeder extends Seeder
@@ -20,12 +21,12 @@ class SellersTableSeeder extends Seeder
         foreach ($old_sellers as $seller) {
             DB::table('tbl_sellers')->insert([
                 'id' => $seller->sellers_id,
-                'company_id' => $seller->sellers_company_id,
-                'name' => $seller->sellers_name,
-                'login' => $seller->sellers_login,
-                'email' => $seller->sellers_email,
-                'created_at' => $seller->created_at,
-                'updated_at' => $seller->updated_at
+                'name' => "'" . $seller->sellers_name . "'",
+                'login' => "'" . $seller->login . "'",
+                'email' => "'" . $seller->sellers_email . "'",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'tbl_company_id' => 1,
             ]);
         }
         
