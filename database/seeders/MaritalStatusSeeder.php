@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Tbl_marital_status_old;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 
 class MaritalStatusSeeder extends Seeder
