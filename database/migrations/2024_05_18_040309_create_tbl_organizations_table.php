@@ -21,8 +21,9 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignId('tbl_company_id')->constrained();
-            // $table->foreignId('tbl_organization_fields_id')->constrained();
             $table->foreignId('tbl_seller_id')->constrained();
+            $table->foreignId('tbl_organization_fields_id')->constrained();
+            // $table->foreignId('tbl_organization_fields_id')->constrained();
 
         });
     }

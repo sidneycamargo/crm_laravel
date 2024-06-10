@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('itin', 45)->nullable();
             $table->string('email', 150)->nullable();
             $table->string('phone', 20)->nullable();
-            $table->string('profession')->nullable();
             $table->string('zip', 9)->nullable();
             $table->string('street_name', 100)->nullable();
             $table->string('number', 10)->nullable();
