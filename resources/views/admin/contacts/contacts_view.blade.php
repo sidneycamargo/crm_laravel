@@ -1,4 +1,4 @@
-@extends('admin.admin_dashboard')
+@extends('admin.admin_layout')
 
 @section('admin')
 <div class="page-content">
@@ -41,6 +41,7 @@
                     <thead>
                         <tr>
                             <th>Operações</th>
+                            <th>CPFed</th>
                             <th>CPF</th>
                             <th>Name</th>
                             <th>Phone</th>
@@ -61,7 +62,19 @@
                                     <button class="ms-2 btn btn-danger lni lni-trash"></button>
                                 </form>
                             </td>
-                            <td>{{ $item->document_itin}}</td>
+                            <?php
+                              $value = $item->itin;
+                              $cpfPatern = preg_replace('/\D/', '', $value); // remove qq coisa q não seja numero
+                              // verificar se é cpf (11) ou se é CNPJ (14)
+                              if (strlen($cpfPatern) > 11) {
+                                 $cpfPatern = preg_replace("/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/", "$1.$2.$3/$4-$5", $cpfPatern); 
+                                 //$cpfPatern = 'é cnpj';
+                              } else {
+                                 $cpfPatern = preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "$1.$2.$3-$4", $cpfPatern); 
+                              }
+                            ?>
+                            <td>{{ $cpfPatern }}</td>
+                            <td>{{ $item->itin}}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->phone }}</td>
                             <td>{{ $item->email}}</td>
