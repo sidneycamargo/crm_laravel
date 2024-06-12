@@ -10,7 +10,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Table</li>
+                    <li class="breadcrumb-item active" aria-current="page">Customers</li>
                 </ol>
             </nav>
         </div>
@@ -18,21 +18,22 @@
             <form action="{{ route('admin.contacts.add') }}" method="post">
                 @csrf
                 <button type="submit" class="btn btn-success">Add</button>
-            </form>
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">Settings</button>
-                <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Settings</button>
+                    <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
+                        <a class="dropdown-item" href="javascript:;">Another action</a>
+                        <a class="dropdown-item" href="javascript:;">Something else here</a>
+                        <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
+                    </div>
                 </div>
-            </div>
+        </form>
         </div>
     </div>
     <!--end breadcrumb-->
-    <h6 class="mb-0 text-uppercase">DataTable Example</h6>
+    <h6 class="mb-0 text-uppercase">Customers</h6>
     <hr/>
     <div class="card">
         <div class="card-body">
@@ -41,7 +42,6 @@
                     <thead>
                         <tr>
                             <th>Operações</th>
-                            <th>CPFed</th>
                             <th>CPF</th>
                             <th>Name</th>
                             <th>Phone</th>
@@ -67,16 +67,23 @@
                               $cpfPatern = preg_replace('/\D/', '', $value); // remove qq coisa q não seja numero
                               // verificar se é cpf (11) ou se é CNPJ (14)
                               if (strlen($cpfPatern) > 11) {
-                                 $cpfPatern = preg_replace("/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/", "$1.$2.$3/$4-$5", $cpfPatern); 
+                                 $cpfPatern = preg_replace('/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/', "$1.$2.$3/$4-$5", $cpfPatern); 
                                  //$cpfPatern = 'é cnpj';
                               } else {
-                                 $cpfPatern = preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "$1.$2.$3-$4", $cpfPatern); 
+                                 $cpfPatern = preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', "$1.$2.$3-$4", $cpfPatern); 
+                              }
+
+                              $phone = $item->phone;
+                              $phonePatern = preg_replace('/\D/', '', $phone);
+                              if (strlen($phone) > 10) {
+                                $phonePatern = preg_replace('/(\d{2})(\d)(\d{4})(\d{4})/', "($1) $2 $3-$4", $phonePatern);
+                              } else {
+                                $phonePatern = preg_replace('/(\d{2})(\d{4})(\d{4})/', "($1) $2-$3", $phonePatern);
                               }
                             ?>
                             <td>{{ $cpfPatern }}</td>
-                            <td>{{ $item->itin}}</td>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->phone }}</td>
+                            <td>{{ $phonePatern }}</td>
                             <td>{{ $item->email}}</td>
                         </tr>
                     @endforeach
