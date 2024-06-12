@@ -15,7 +15,6 @@ class ContactsController extends Controller
         $contacts = Tbl_contact::all();
 
         return view('admin.contacts.contacts_view', compact('contacts'));
-        // return view('admin.contacts.contacts_view', compact($contacts));
     
     }
 
@@ -23,11 +22,11 @@ class ContactsController extends Controller
         echo "Contacts Add";
     }
 
-    public function contactsEdit() {
+    public function contactsEdit($id) {
 
-        $company = 1;
+        $contact = Tbl_contact::find($id);
 
-        echo "Contacts Edit";
+        return view('admin.contacts.contacts_edit', compact('contact'));
     }
 
     public function contactsDestroy(Request $request) {
