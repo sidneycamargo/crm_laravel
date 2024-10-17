@@ -49,7 +49,7 @@ return [
             //'host' => env('DB_HOST', 'localhost'),
             'host' => env('DB_HOST', 'br494.hostgator.com.br'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'fatur183_crm_test'),
+            'database' => env('DB_DATABASE', 'fatur183_crm_old'),
             'username' => env('DB_USERNAME', 'fatur183_test'),
             'password' => env('DB_PASSWORD', 'KelTest!1'),
             'unix_socket' => env('DB_SOCKET', ''),

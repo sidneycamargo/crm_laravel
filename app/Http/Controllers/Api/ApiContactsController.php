@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Tbl_contact;
 use Illuminate\Http\Request;
 
-class ContactsController extends Controller
+class ApiContactsController extends Controller
 {
-    public function contactsView()
+    public function contactsListAll()
     {
 
         $company = 1;
 
         $contacts = Tbl_contact::all();
 
-        return view('admin.contacts.contacts_view', compact('contacts'));
+        return $contacts;
     }
 
     public function contactList()
