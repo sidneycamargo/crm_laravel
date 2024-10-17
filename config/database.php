@@ -46,12 +46,12 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'localhost'),
-            //'host' => env('DB_HOST', 'br494.hostgator.com.br'),
+            //'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'br494.hostgator.com.br'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'fatur183_crm_test'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'username' => env('DB_USERNAME', 'fatur183_test'),
+            'password' => env('DB_PASSWORD', 'KelTest!1'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -147,7 +147,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
