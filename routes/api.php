@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContactsController;
+use App\Models\Tbl_contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+
+Route::get('/contactlist', [ContactsController::class, 'ContactList'])->name('api.contact.list');

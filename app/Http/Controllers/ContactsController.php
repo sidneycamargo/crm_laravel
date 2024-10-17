@@ -8,28 +8,42 @@ use Illuminate\Http\Request;
 
 class ContactsController extends Controller
 {
-    public function contactsView() {
+    public function contactsView()
+    {
 
         $company = 1;
 
         $contacts = Tbl_contact::all();
 
         return view('admin.contacts.contacts_view', compact('contacts'));
-    
     }
 
-    public function contactsAdd() {
+    public function contactList()
+    {
+        $company = 1;
+
+        $contacts = Tbl_contact::all();
+
+        dd($contacts);
+
+        return $contacts;
+    }
+
+    public function contactsAdd()
+    {
         echo "Contacts Add";
     }
 
-    public function contactsEdit($id) {
+    public function contactsEdit($id)
+    {
 
         $contact = Tbl_contact::find($id);
 
         return view('admin.contacts.contacts_edit', compact('contact'));
     }
 
-    public function contactsDestroy(Request $request) {
+    public function contactsDestroy(Request $request)
+    {
 
         $company = 1;
 
@@ -44,6 +58,5 @@ class ContactsController extends Controller
             );
 
         return ($id);
-
     }
 }
