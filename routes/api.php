@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Api\ApiContactsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-
-
 Route::get('/contactlist', [ApiContactsController::class, 'ContactList'])->name('api.contact.list');
+Route::get('/contact/{id}', [ApiContactsController::class, 'get'])->name('api.contact.get')->middleware('api');
+Route::get('admin/new-token', [AdminController::class, 'newToken'])->name('api.admin.newToken');

@@ -4,14 +4,18 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Laravel\Sanctum\HasApiTokens;
 
 class AuthenticatedSessionController extends Controller
 {
+
+    use HasApiTokens;
+
     /**
      * Display the login view.
      */
@@ -30,9 +34,9 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $url = '';
-        if($request->user()->role === 'admin'){
+        if ($request->user()->role === 'admin') {
             $url = '/admin/dashboard';
-        } elseif($request->user()->role === 'user') {
+        } elseif ($request->user()->role === 'user') {
             $url = '/dashboard';
         }
 
@@ -51,5 +55,25 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function createNewToken(Request $request)
+    {
+        $this->newToken($request);
+    }
+
+    public function viewToken(Request $request)
+    {
+        $user = Auth::user();
+
+        $user = User::find($user->id);
+
+        $token = $user->api_token;
+
+        if (is_null($token)) {
+            $this->newToken($request);
+        } else {
+            return view('admin.view.token', compact('token'));
+        }
     }
 }

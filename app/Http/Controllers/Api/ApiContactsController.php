@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Tbl_contact;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ApiContactsController extends Controller
 {
@@ -22,9 +23,26 @@ class ApiContactsController extends Controller
     {
         $company = 1;
 
-        $contacts = Tbl_contact::where('contact_id', 2)->first();
+        $contacts = Tbl_contact::where('contact_id', 3)->first();
 
         return $contacts;
+    }
+
+    public function get(int $id): Response
+    {
+        $company = 1;
+
+        $request = Request();
+
+        dd($request);
+
+        $contact = Tbl_contact::where('contact_id', $id)->first();
+
+        if (is_null($contact)) {
+            return response(204);
+        }
+
+        return response()->json($contact, 200);
     }
 
     public function contactsAdd()

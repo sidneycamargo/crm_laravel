@@ -27,7 +27,6 @@ Route::get('login', [AdminController::class, 'AdminLogin'])->name('login');
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 Route::post('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -38,14 +37,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // Admin Group Middleware
-Route::middleware(['auth', 'roles:admin'])->group( function() {
+Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
-    
+
     // CONTACTS
     Route::get('/admin/contacts/view', [ContactsController::class, 'ContactsView'])->name('admin.contacts.view');
     Route::delete('/admin/contacts/delete/{id}', [ContactsController::class, 'ContactsDestroy'])->name('admin.contacts.delete');
@@ -65,8 +64,4 @@ Route::middleware(['auth', 'roles:admin'])->group( function() {
     // CONVERT
     Route::get('/admin/convert/companies/view', [CompaniesController::class, 'ConvertCompaniesView'])->name('admin.convert.companies.view');
     Route::post('/admin/convert/companies/execute', [CompaniesController::class, 'ConvertCompaniesExecute'])->name('admin.convert.companies.execute');
-
-
 }); // End Middleware
-
-
