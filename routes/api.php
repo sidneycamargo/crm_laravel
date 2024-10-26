@@ -22,5 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/contactlist', [ApiContactsController::class, 'ContactList'])->name('api.contact.list');
+
+Route::get('admin/newtoken', [AdminController::class, 'newToken'])->name('api.admin.newToken');
+
 Route::get('/contact/{id}', [ApiContactsController::class, 'get'])->name('api.contact.get')->middleware('api');
-Route::get('admin/new-token', [AdminController::class, 'newToken'])->name('api.admin.newToken');

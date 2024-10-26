@@ -25,6 +25,8 @@ class ApiContactsController extends Controller
 
         $contacts = Tbl_contact::where('contact_id', 3)->first();
 
+        dd($contacts);
+
         return $contacts;
     }
 
