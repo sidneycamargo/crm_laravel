@@ -45,11 +45,15 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
 
+    // MANAGER CONTACTS
+    Route::delete('/contacts/delete/{id}', [ContactsController::class, 'ContactsDestroy'])->name('contacts.delete');
+
+
     // CONTACTS
-    Route::get('/admin/contacts/view', [ContactsController::class, 'ContactsView'])->name('admin.contacts.view');
-    Route::delete('/admin/contacts/delete/{id}', [ContactsController::class, 'ContactsDestroy'])->name('admin.contacts.delete');
-    Route::get('/admin/contacts/edit/{id}', [ContactsController::class, 'ContactsEdit'])->name('admin.contacts.edit');
-    Route::post('/admin/contacts/add', [ContactsController::class, 'ContactsAdd'])->name('admin.contacts.add');
+    Route::get('/contacts/view', [ContactsController::class, 'ContactsView'])->name('contacts.view');
+    Route::get('/contacts/edit/{id}', [ContactsController::class, 'ContactsEdit'])->name('contacts.edit');
+    Route::post('/contacts/add', [ContactsController::class, 'ContactsAdd'])->name('contacts.add');
+    Route::post("contacts/store", [ContactsController::class, 'Store'])->name('contacts.store');
 
     // CONTRACTS
     Route::get('/admin/contracts/view', [ContractsController::class, 'ContractsView'])->name('admin.contracts.view');

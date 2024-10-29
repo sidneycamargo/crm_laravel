@@ -15,7 +15,7 @@ class ContactsController extends Controller
 
         $contacts = Tbl_contact::all();
 
-        return view('admin.contacts.contacts_view', compact('contacts'));
+        return view('contacts.contacts_view', compact('contacts'));
     }
 
     public function contactList()
@@ -29,7 +29,10 @@ class ContactsController extends Controller
 
     public function contactsAdd()
     {
-        echo "Contacts Add";
+
+        $company = 1;
+
+        return view('contacts.contacts_add1');
     }
 
     public function contactsEdit($id)
@@ -37,7 +40,16 @@ class ContactsController extends Controller
 
         $contact = Tbl_contact::find($id);
 
-        return view('admin.contacts.contacts_edit', compact('contact'));
+        return view('contacts.contacts_edit', compact('contact'));
+    }
+
+    public function store(Request $request)
+    {
+        $company = 1;
+
+        // $contacts = Tbl_contact::where('contact_id', 2)->first();
+
+        return $request;
     }
 
     public function contactsDestroy(Request $request)
