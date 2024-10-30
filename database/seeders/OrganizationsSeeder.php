@@ -22,9 +22,9 @@ class OrganizationsSeeder extends Seeder
                 'address' => $organization->organization_address,
                 'city' => $organization->organization_city,
                 'country' => $organization->organization_country,
-                'tbl_company_id' => 1,
-                'tbl_seller_id' => $organization->organization_owner,
-                'tbl_organization_fields_id' => $organization->organization_fields_id,
+                'company_id' => 1,
+                'seller_id' => $organization->organization_owner,
+                'organization_fields_id' => $organization->organization_fields_id,
             ]);
         }
     }

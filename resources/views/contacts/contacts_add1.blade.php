@@ -33,13 +33,13 @@
         <!--end breadcrumb-->
 
         <div class="col-xl-6 mx-auto">
-            <div class="card ">
-                <form class="row g-3" action="{{ route('contacts.store') }}" method="post">
-                    @csrf
+            <form class="row g-3" action="{{ route('contacts.store') }}" method="post">
+                @csrf
+                <div class="card ">
                     <div class="card-header mt-2">
                         <h5>Customer Add</h5>
                         <div class="ms-auto">
-                            @csrf
+
                             <div class="d-md-flex d-grid align-items-center gap-3">
                                 <button type="submit" class="btn btn-success">Salvar</button>
                                 <a href="{{ route('contacts.view') }}" class="btn btn-warning px-4">Voltar</a>
@@ -47,14 +47,11 @@
                         </div>
                     </div>
                     <div class="card-body p-4">
-                        <div class="row p-0 m-0">
+                        <div class="row mt-2 ml-0 mr-0 mb-0">
                             <div class="col-md-3">
                                 <label for="name" class="form-label">CPF/CNPJ</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class='bx bx-user'></i></span>
-                                    <input type="text" class="form-control" id="itin" name="itin"
-                                        placeholder="CPF/CNPJ">
-                                </div>
+                                <input type="text" class="form-control" id="itin" name="itin"
+                                    placeholder="CPF/CNPJ">
                             </div>
                             <div class="col-md-7">
                                 <label for="name" class="form-label">Name</label>
@@ -71,24 +68,15 @@
                         <div class="row mt-2 ml-0 mr-0 mb-0">
                             <div class="col-md-4">
                                 <label for="input26" class="form-label">Last Name</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class='bx bx-user'></i></span>
-                                    <input type="text" class="form-control" id="input26" placeholder="Last Name">
-                                </div>
+                                <input type="text" class="form-control" id="input26" placeholder="Last Name">
                             </div>
                             <div class="col-md-4">
                                 <label for="input15" class="form-label">Phone</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class='bx bx-microphone'></i></span>
-                                    <input type="text" class="input-group-text" id="input15" placeholder="Phone">
-                                </div>
+                                <input type="text" class="form-control" id="input15" placeholder="Phone">
                             </div>
                             <div class="col-md-4">
                                 <label for="input16" class="form-label">Email</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class='bx bx-envelope'></i></span>
-                                    <input type="text" class="input-group-text" id="input16" placeholder="Email">
-                                </div>
+                                <input type="text" class="form-control" id="input16" placeholder="Email">
                             </div>
                         </div>
 
@@ -290,11 +278,8 @@
                         </div>
 
                     </div>
-                </form>
-
-            </div>
-
-
+                </div>
+            </form>
         </div>
     </div>
 @endsection

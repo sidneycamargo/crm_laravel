@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\ContractsController;
+use App\Http\Controllers\MaritalStatusController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,4 +69,14 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     // CONVERT
     Route::get('/admin/convert/companies/view', [CompaniesController::class, 'ConvertCompaniesView'])->name('admin.convert.companies.view');
     Route::post('/admin/convert/companies/execute', [CompaniesController::class, 'ConvertCompaniesExecute'])->name('admin.convert.companies.execute');
+
+    // MaritalStatus
+    Route::get('/maritalstatus/view', [MaritalStatusController::class, 'Show'])->name('marital_status.show');
+    Route::get('/maritalstatus/edit/{id}', [MaritalStatusController::class, 'Edit'])->name('marital_status.edit');
+    Route::post('/maritalstatus/add', [MaritalStatusController::class, 'Create'])->name('marital_status.create');
+    Route::post("maritalstatus/store", [MaritalStatusController::class, 'Store'])->name('marital_status.store');
+    Route::post("maritalstatus/delete", [MaritalStatusController::class, 'Destroy'])->name('marital_status.delete');
+    
+    
+
 }); // End Middleware

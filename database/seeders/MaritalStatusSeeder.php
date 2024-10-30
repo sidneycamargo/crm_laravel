@@ -23,7 +23,7 @@ class MaritalStatusSeeder extends Seeder
                 'female_name' => $marital_status->marital_status_female_name,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'tbl_company_id' => 1,
+                'company_id' => 1,
             ]);
         }
     }

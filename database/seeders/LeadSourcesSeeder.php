@@ -22,7 +22,7 @@ class LeadSourcesSeeder extends Seeder
                 'description' => $lead_source->lead_source_descr,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'tbl_company_id' => 1,
+                'company_id' => 1,
             ]);
         }
     }

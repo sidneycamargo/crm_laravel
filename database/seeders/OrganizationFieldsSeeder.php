@@ -22,7 +22,7 @@ class OrganizationFieldsSeeder extends Seeder
                 'description' => $organization_field->organization_fields_descr,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'tbl_company_id' => 1,
+                'company_id' => 1,
             ]);
         }
     }
