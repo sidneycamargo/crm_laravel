@@ -17,7 +17,7 @@ class MaritalStatusSeeder extends Seeder
         $old_marital_status = Tbl_marital_status_old::all();
 
         foreach ($old_marital_status as $marital_status) {
-            DB::table('tbl_marital_status')->insert([
+            DB::table('marital_status')->insert([
                 'id' => $marital_status->marital_status_id,
                 'masculine_name' => $marital_status->marital_status_masculine_name,
                 'female_name' => $marital_status->marital_status_female_name,

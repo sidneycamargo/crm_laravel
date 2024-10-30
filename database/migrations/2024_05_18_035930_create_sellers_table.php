@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_marital_status', function (Blueprint $table) {
+        Schema::create('sellers', function (Blueprint $table) {
             $table->id();
-            $table->string('masculine_name');
-            $table->string('female_name');
+            $table->string('name');
+            $table->string('login')->nullable();
+            $table->string('email')->nullable();
 
             $table->timestamps();
 
             // Foreign Keys / Chaves estrangeiras
-            $table->foreignid('tbl_company_id')->constrained();
+            $table->foreignid('company_id')->constrained();
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_marital_status');
+        Schema::dropIfExists('sellers');
     }
 };

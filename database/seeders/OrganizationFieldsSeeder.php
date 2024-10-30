@@ -17,7 +17,7 @@ class OrganizationFieldsSeeder extends Seeder
         $old_organization_fields = Tbl_organization_fields_old::all();
 
         foreach ($old_organization_fields as $organization_field) {
-            DB::table('tbl_organization_fields')->insert([
+            DB::table('organization_fields')->insert([
                 'id' => $organization_field->organization_fields_id,
                 'description' => $organization_field->organization_fields_descr,
                 'created_at' => Carbon::now(),

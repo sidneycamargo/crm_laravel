@@ -18,5 +18,7 @@ yarn-error.log
 /.idea
 /.vscode
 
+*.sqlite
+
 vendor.zip
 node_modules.zip

@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_organization_fields', function (Blueprint $table) {
+        Schema::create('marital_status', function (Blueprint $table) {
             $table->id();
-            $table->string('description', 150);
-            
+            $table->string('masculine_name');
+            $table->string('female_name');
+
             $table->timestamps();
 
             // Foreign Keys / Chaves estrangeiras
-            $table->foreignid('tbl_company_id')->constrained();
+            $table->foreignid('company_id')->constrained();
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_organization_fields');
+        Schema::dropIfExists('marital_status');
     }
 };

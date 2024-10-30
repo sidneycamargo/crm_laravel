@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_sellers', function (Blueprint $table) {
+        Schema::create('organization_fields', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('login')->nullable();
-            $table->string('email')->nullable();
+            $table->string('description', 150);
 
             $table->timestamps();
 
             // Foreign Keys / Chaves estrangeiras
-            $table->foreignid('tbl_company_id')->constrained();
-
-
+            $table->foreignid('company_id')->constrained();
         });
     }
 
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_sellers');
+        Schema::dropIfExists('organization_fields');
     }
 };

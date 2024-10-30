@@ -24,6 +24,4 @@ class Tbl_company_old extends Model
         'created_at',
         'updated_at'
     ];
-
-
 }

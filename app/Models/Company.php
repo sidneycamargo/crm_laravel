@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tbl_company extends Model
+class Company extends Model
 {
     use HasFactory;
 
@@ -22,8 +22,8 @@ class Tbl_company extends Model
     ];
 
 
-    public function sellers() {
-        return $this->hasMany( Tbl_seller::class);
-        }
-
+    public function sellers()
+    {
+        return $this->hasMany(Seller::class);
+    }
 }

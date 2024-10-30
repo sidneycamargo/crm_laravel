@@ -14,6 +14,4 @@ class Tbl_marital_status_old extends Model
     protected $primaryKey = "marital_status_id";
 
     protected $guarded = [];
-
-
 }

@@ -18,7 +18,7 @@ class SellersTableSeeder extends Seeder
         $old_sellers = Tbl_seller_old::all();
 
         foreach ($old_sellers as $seller) {
-            DB::table('tbl_sellers')->insert([
+            DB::table('sellers')->insert([
                 'id' => $seller->sellers_id,
                 'name' => "'" . $seller->sellers_name . "'",
                 'login' => "'" . $seller->login . "'",
@@ -28,6 +28,5 @@ class SellersTableSeeder extends Seeder
                 'tbl_company_id' => 1,
             ]);
         }
-        
     }
 }

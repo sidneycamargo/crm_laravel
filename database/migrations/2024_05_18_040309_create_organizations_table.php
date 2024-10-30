@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_organizations', function (Blueprint $table) {
+        Schema::create('organizations', function (Blueprint $table) {
             $table->id();
             $table->string('description', 150);
             $table->string('address')->nullable();
@@ -20,9 +20,9 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreignId('tbl_company_id')->constrained();
-            $table->foreignId('tbl_seller_id')->constrained();
-            $table->foreignId('tbl_organization_fields_id')->constrained();
+            $table->foreignId('company_id')->constrained();
+            $table->foreignId('seller_id')->constrained();
+            $table->foreignId('organization_fields_id')->constrained();
             // $table->foreignId('tbl_organization_fields_id')->constrained();
 
         });
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_organizations');
+        Schema::dropIfExists('organizations');
     }
 };

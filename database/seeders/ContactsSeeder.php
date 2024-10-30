@@ -20,7 +20,7 @@ class ContactsSeeder extends Seeder
         $old_contacts = Tbl_contact_old::all();
 
         foreach ($old_contacts as $contacts) {
-            DB::table('tbl_contacts')->insert([
+            DB::table('contacts')->insert([
                 'id' => $contacts->contact_id,
                 'name' => $contacts->contact_name,
                 'title' => $contacts->contact_title,
@@ -48,12 +48,11 @@ class ContactsSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
 
-                'tbl_company_id' => $contacts->contact_companys_id,
-                'tbl_marital_status_id' => $contacts->contact_marital_status_id,
-                'tbl_organization_id' => $contacts->contact_organizations_id,
-                'tbl_lead_source_id' => $contacts->contact_lead_source_id,
-                ]);
+                'company_id' => $contacts->contact_companys_id,
+                'marital_status_id' => $contacts->contact_marital_status_id,
+                'organization_id' => $contacts->contact_organizations_id,
+                'lead_source_id' => $contacts->contact_lead_source_id,
+            ]);
         }
-
     }
 }

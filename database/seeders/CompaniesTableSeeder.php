@@ -14,9 +14,9 @@ class CompaniesTableSeeder extends Seeder
     public function run(): void
     {
         $old_companys = Tbl_company_old::all();
-        
+
         foreach ($old_companys as $company) {
-            DB::table('tbl_companies')->insert(
+            DB::table('companies')->insert(
                 // Admin
                 [
                     'id' => $company->company_id,
@@ -31,4 +31,3 @@ class CompaniesTableSeeder extends Seeder
         }
     }
 }
-

@@ -5,15 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tbl_seller extends Model
+class Seller extends Model
 {
     use HasFactory;
 
     //protected $guarded = [];
-    protected $connection = "mysql_old";
-    protected $table = "tbl_sellers";
-    protected $primaryKey = "sellers_id";
-
     protected $fillable = [
         'id',
         'company_id',
@@ -23,10 +19,9 @@ class Tbl_seller extends Model
         'tbl_company_id'
     ];
 
-    public function company() {
+    public function company()
+    {
 
-        return $this->belongsTo(Tbl_seller::class);
-        
+        return $this->belongsTo(Seller::class);
     }
-
 }

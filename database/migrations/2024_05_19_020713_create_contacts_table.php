@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_contacts', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->string('name', 150);
             $table->date('date')->nullable();
@@ -41,11 +41,10 @@ return new class extends Migration
             $table->timestamps();
 
             // Foreign Keys / Chaves estrangeiras
-            $table->foreignid('tbl_company_id')->constrained();
-            $table->foreignid('tbl_organization_id')->constrained();
-            $table->foreignid('tbl_marital_status_id')->references('id')->on('tbl_marital_status')->constrained();
-            $table->foreignid('tbl_lead_source_id')->constrained();
-            
+            $table->foreignid('company_id')->constrained();
+            $table->foreignid('organization_id')->constrained();
+            $table->foreignid('marital_status_id')->references('id')->on('marital_status')->constrained();
+            $table->foreignid('lead_source_id')->constrained();
         });
     }
 
@@ -54,6 +53,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_contacts');
+        Schema::dropIfExists('contacts');
     }
 };

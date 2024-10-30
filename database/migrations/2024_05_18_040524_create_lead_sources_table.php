@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_lead_sources', function (Blueprint $table) {
+        Schema::create('lead_sources', function (Blueprint $table) {
             $table->id();
             $table->string('description', 150);
             $table->timestamps();
 
             // Foreign Keys / Chaves estrangeiras
-            $table->foreignid('tbl_company_id')->constrained();
+            $table->foreignid('company_id')->constrained();
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_lead_sources');
+        Schema::dropIfExists('lead_sources');
     }
 };
