@@ -51,17 +51,18 @@ class MaritalStatusController extends Controller
 
         // $maritalStatus = Contact::where('contact_id', 2)->first();
         //Marital_status::insert('insert into marital_status (company_id, name, itin) values (?, ?, ?)', [$company_id, 'Dayle', '111.111.111-11']);
-        
+
         $maritalStatus = new Marital_status();
 
-        $maritalStatus->masculine   = $request->masculine;
-        $maritalStatus->female      = $request->female;
+        $maritalStatus->masculine_name   = $request->male;
+        $maritalStatus->female_name      = $request->female;
 
         $maritalStatus->company_id  = $company_id;
 
-        $maritalStatus->save();
 
-        return $request;
+        $id = $maritalStatus->save();
+
+        return $id;
     }
 
     public function maritalStatusUpdate(Request $request)

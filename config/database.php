@@ -43,15 +43,15 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            //'host' => env('DB_HOST', 'localhost'),
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'br494.hostgator.com.br'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'fatur183_crm_test'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'username' => env('DB_USERNAME', 'fatur183_test'),
+            'password' => env('DB_PASSWORD', 'KelTest!1'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -64,15 +64,15 @@ return [
             ]) : [],
         ],
 
-        'mysqltest' => [
+        'mysql_local' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             //'host' => env('DB_HOST', 'localhost'),
-            'host' => env('DB_HOST', 'br494.hostgator.com.br'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'fatur183_crm_test'),
-            'username' => env('DB_USERNAME', 'fatur183_test'),
-            'password' => env('DB_PASSWORD', 'KelTest!1'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

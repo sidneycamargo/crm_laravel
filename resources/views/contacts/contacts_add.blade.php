@@ -21,7 +21,7 @@
         </div>
         <!-- end breadcrumb -->
         <div class="col-xl-6 mx-auto">
-            <form class="row g-3" action="{{ route('contacts.store') }}" method="post">
+            <form class="row g-3" action="saveData()" method="post">
                 @csrf
                 <div class="card ">
                     <div class="card-header mt-2">

@@ -3,43 +3,15 @@
 @section('admin')
     <div class="page-content">
 
-        <!--breadcrumb-->
-        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Marital Status</div>
-            <div class="ps-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Marital Status</li>
-                    </ol>
-                </nav>
-            </div>
-            <div class="ms-auto gap-3">
-                <button type="button" class="btn btn-success">Salvar</button>
-                <button type="button" class="btn btn-warning">Voltar</button>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Filters</button>
-                    <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                        data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                            href="javascript:;">Action</a>
-                        <a class="dropdown-item" href="javascript:;">Another action</a>
-                        <a class="dropdown-item" href="javascript:;">Something else here</a>
-                        <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end breadcrumb-->
+        <!--Menu Add/Edit-->
+        <x-menu-edit></x-menu-edit>
 
         <div class="col-xl-6 mx-auto">
-            <form class="row g-3" action="{{ route('marital_status.store') }}" method="post">
-                @csrf
-                <div class="card ">
+            <form class="row g-3">
+                <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}" />
+                <div class="card">
                     <div class="card-header mt-2">
-                        <h5>Marital Status Add</h5>
+                        <h5>Estado Civil - Novo</h5>
                     </div>
                     <div class="card-body p-4">
                         <div class="row mt-2 ml-0 mr-0 mb-0">
@@ -50,24 +22,93 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="female" class="form-label">No feminino</label>
-                                <input type="text" class="form-control" id="name" name="female" placeholder="Estado civil no feminino">
+                                <input type="text" class="form-control" id="female" name="female"
+                                    placeholder="Estado civil no feminino">
                             </div>
                         </div>
-
-                    </div>
-
-                    <div class="card-footer">
-                        <div class="ms-auto">
-                            @csrf
-                            <div class="d-md-flex d-grid align-items-center gap-3">
-                                <button type="submit" class="btn btn-success">Salvar</button>
-                                <a href="{{ route('marital_status.show') }}" class="btn btn-warning px-4">Voltar</a>
-                            </div>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" checked value="" id="clearInputs">
+                            <label class="form-check-label" for="flexCheckDefault">Limpar Campos</label>
                         </div>
-
                     </div>
+
                 </div>
             </form>
         </div>
+
+        <x-menu-edit></x-menu-edit>
+
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        function success_noti(param_msg) {
+            Lobibox.notify('success', {
+                pauseDelayOnHover: true,
+                continueDelayOnInactiveTab: false,
+                position: 'top right',
+                icon: 'bx bx-check-circle',
+                msg: param_msg
+                // msg: 'Lorem ipsum dolor sit amet hears farmer indemnity inherent.'
+            });
+        }
+
+        function warning_noti(param_msg) {
+            Lobibox.notify('warning', {
+                pauseDelayOnHover: true,
+                continueDelayOnInactiveTab: false,
+                position: 'top right',
+                icon: 'bx bx-error',
+                msg: param_msg
+            });
+        }
+
+        function sendPost(url, body) {
+            console.log("Body= ", body)
+            const request = new XMLHttpRequest()
+            request.open("POST", url, true)
+            request.setRequestHeader("Content-type", "application/json")
+            request.send(JSON.stringify(body))
+
+            request.onload = function() {
+                console.log(this.responseText)
+            }
+
+            if (document.getElementById("clearInputs").checked) {
+                document.getElementById("male").value = ""
+                document.getElementById("female").value = ""
+            }
+            return request.responseText
+        }
+
+        function saveData() {
+            // preventDefault()
+            // "{{ route('marital_status.store') }}"
+            const url = "{{ route('marital_status.store') }}"
+            const _token = document.getElementById("_token").value
+            console.log(_token)
+            const male = document.getElementById("male").value
+            const female = document.getElementById("female").value
+            console.log(male)
+            console.log(female)
+            body = {
+                "_token": _token,
+                "male": male,
+                "female": female
+            }
+            sendPost(url, body)
+
+        }
+
+        function cancelAdd() {
+            const cancelConfirmation = confirm('Confirma que deseja voltar? Ao voltar, poderá perder os dados')
+
+            if (cancelConfirmation) {
+                console.log('CancelAdd')
+            } else {
+                console.log('Not Canceled')
+            }
+        }
+    </script>
+@endpush
