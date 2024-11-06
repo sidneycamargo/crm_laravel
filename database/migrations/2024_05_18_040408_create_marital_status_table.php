@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('marital_status', function (Blueprint $table) {
             $table->id();
-            $table->string('masculine_name');
-            $table->string('female_name');
+            $table->string('masculine_name')->unique();
+            $table->string('female_name')->unique();
 
             $table->timestamps();
 

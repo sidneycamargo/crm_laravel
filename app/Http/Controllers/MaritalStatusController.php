@@ -10,7 +10,6 @@ class MaritalStatusController extends Controller
 {
     public function show()
     {
-
         $company = 1;
 
         $maritalStatus = Marital_Status::all();
@@ -31,11 +30,32 @@ class MaritalStatusController extends Controller
 
     public function create()
     {
-
         $company = 1;
 
         return view('maritalStatus.maritalStatus_add');
     }
+
+    public function store(Request $request)
+    {
+        $company_id = 1;
+
+        $maritalStatus = new Marital_status();
+
+        $res = $maritalStatus->create([
+            "company_id"            => $company_id,
+            "masculine_name"        => $request->male,
+            "female_name"           => $request->female,
+        ]);
+
+
+        $data = [
+            "id"      => $res->id,
+            "message" => "Saved with success!",
+        ];
+
+        return $data;
+    }
+
 
     public function edit($id)
     {
@@ -45,41 +65,11 @@ class MaritalStatusController extends Controller
         return view('maritalStatus.maritalStatus_edit', compact('contact'));
     }
 
-    public function store(Request $request)
-    {
-        $company_id = 1;
-
-        // $maritalStatus = Contact::where('contact_id', 2)->first();
-        //Marital_status::insert('insert into marital_status (company_id, name, itin) values (?, ?, ?)', [$company_id, 'Dayle', '111.111.111-11']);
-
-        $maritalStatus = new Marital_status();
-
-        $maritalStatus->masculine_name   = $request->male;
-        $maritalStatus->female_name      = $request->female;
-
-        $maritalStatus->company_id  = $company_id;
-
-
-        $id = $maritalStatus->save();
-
-        return $id;
-    }
-
     public function maritalStatusUpdate(Request $request)
     {
         $company_id = 1;
 
         $maritalStatus = new Marital_status();
-
-        $maritalStatus->name                 = $request->name;
-
-        /**
-        $maritalStatus->date                 = $request->date;
-        $maritalStatus->title                = $request->title;
-         */
-        $maritalStatus->company_id           = $company_id;
-
-        $maritalStatus->save();
     }
 
     public function maritalStatusDestroy(Request $request)

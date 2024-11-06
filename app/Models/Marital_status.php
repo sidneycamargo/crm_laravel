@@ -10,4 +10,10 @@ class Marital_status extends Model
     use HasFactory;
 
     protected $table = 'marital_status';
+
+    protected $fillable = [
+        'masculine_name',
+        'female_name',
+        'company_id',
+    ];
 }

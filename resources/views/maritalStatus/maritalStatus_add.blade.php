@@ -65,33 +65,34 @@
         }
 
         function sendPost(url, body) {
-            console.log("Body= ", body)
             const request = new XMLHttpRequest()
+
+            request.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        success_noti(JSON.parse(request.responseText).message);
+                    } else {
+                        warning_noti('Error: ' + this.status)
+                    }
+                }
+                return
+            }
             request.open("POST", url, true)
             request.setRequestHeader("Content-type", "application/json")
             request.send(JSON.stringify(body))
 
-            request.onload = function() {
-                console.log(this.responseText)
-            }
 
             if (document.getElementById("clearInputs").checked) {
                 document.getElementById("male").value = ""
                 document.getElementById("female").value = ""
             }
-            return request.responseText
         }
 
         function saveData() {
-            // preventDefault()
-            // "{{ route('marital_status.store') }}"
             const url = "{{ route('marital_status.store') }}"
             const _token = document.getElementById("_token").value
-            console.log(_token)
             const male = document.getElementById("male").value
             const female = document.getElementById("female").value
-            console.log(male)
-            console.log(female)
             body = {
                 "_token": _token,
                 "male": male,
@@ -102,7 +103,7 @@
         }
 
         function cancelAdd() {
-            const cancelConfirmation = confirm('Confirma que deseja voltar? Ao voltar, poderá perder os dados')
+            const cancelConfirmation = warning_noti('Confirma que deseja voltar? Ao voltar, poderá perder os dados')
 
             if (cancelConfirmation) {
                 console.log('CancelAdd')
