@@ -27,7 +27,7 @@
     <link href="{{ asset('backend') }}/assets/css/icons.css" rel="stylesheet">
 
     <!-- Awesome Icons -->
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css">
 
     <!-- Theme Style CSS -->
     <link rel="stylesheet" href="{{ asset('backend') }}/assets/css/dark-theme.css" />
@@ -185,11 +185,15 @@
     -->
     <!--app JS-->
     <script src="{{ asset('backend') }}/assets/js/app.js"></script>
+
+    <!-- fontawesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/fontawesome.js"></script>
+
     <!--
- <script>
-     new PerfectScrollbar(".app-container")
- </script>
- -->
+    <script>
+        new PerfectScrollbar(".app-container")
+    </script>
+    -->
 
     @stack('scripts')
 

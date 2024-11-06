@@ -10,8 +10,6 @@
                         <div>
                             <span></span>
                         </div>
-                        <button type="button" class="btn btn-success px-5" onclick="success_noti()"><i
-                                class="bx bx-check-circle mr-1"></i> Success</button>
                     </div>
                 </div>
             </div>
