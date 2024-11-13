@@ -117,8 +117,7 @@
         $(document).ready(function() {
             $('#example').DataTable();
         });
-    </script>
-    <script>
+
         $(document).ready(function() {
             var table = $('#example2').DataTable({
                 lengthChange: false,

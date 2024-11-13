@@ -58,9 +58,9 @@
                                             @csrf
                                             <button class="btn btn-warning lni lni-pencil-alt"></button>
                                         </form>
-                                        <form action="{{ route('marital_status.delete', $item->id) }}" method="post">
+                                        <form action="{{ route('marital_status.delete') }}" method="post">
                                             @csrf
-                                            @method('DELETE')
+                                            <input type="text" name='id' value={{ $item->id }} hidden>
                                             <button class="ms-2 btn btn-danger lni lni-trash"></button>
                                         </form>
                                     </td>

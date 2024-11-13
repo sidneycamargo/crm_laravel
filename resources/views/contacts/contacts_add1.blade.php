@@ -13,11 +13,11 @@
                         <h5>Customer Add</h5>
                     </div>
                     <div class="card-body p-4">
-                        <div class="row p-0 m-0">
+                        <div class="row p-0 ml-0 mr-0 mb-0">
                             <div class="col-md-3">
                                 <label for="name" class="form-label">CPF/CNPJ</label>
-                                <input type="text" class="form-control" id="itin" name="itin"
-                                    placeholder="CPF/CNPJ">
+                                <input type="text" class="form-control" id="itin" name="itin" maxlength="18"
+                                    onkeypress="mascaraMutuario(this,cpfCnpj)" placeholder="CPF/CNPJ">
                             </div>
                             <div class="col-md-7">
                                 <label for="name" class="form-label">Name</label>
@@ -48,7 +48,7 @@
 
                     </div>
 
-                    <div class="row ">
+                    <div class="row">
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
@@ -249,3 +249,54 @@
         </div>
     </div>
 @endsection
+
+
+@push('scripts')
+    <script>
+        function mascaraMutuario(o, f) {
+            v_obj = o
+            v_fun = f
+            setTimeout('execmascara()', 1)
+        }
+
+        function execmascara() {
+            v_obj.value = v_fun(v_obj.value)
+        }
+
+        function cpfCnpj(v) {
+
+            //Remove tudo o que não é dígito
+            v = v.replace(/\D/g, "")
+
+            if (v.length <= 11) { //CPF
+
+                //Coloca um ponto entre o terceiro e o quarto dígitos
+                v = v.replace(/(\d{3})(\d)/, "$1.$2")
+
+                //Coloca um ponto entre o terceiro e o quarto dígitos
+                //de novo (para o segundo bloco de números)
+                v = v.replace(/(\d{3})(\d)/, "$1.$2")
+
+                //Coloca um hífen entre o terceiro e o quarto dígitos
+                v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+
+            } else { //CNPJ
+
+                //Coloca ponto entre o segundo e o terceiro dígitos
+                v = v.replace(/^(\d{2})(\d)/, "$1.$2")
+
+                //Coloca ponto entre o quinto e o sexto dígitos
+                v = v.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+
+                //Coloca uma barra entre o oitavo e o nono dígitos
+                v = v.replace(/\.(\d{3})(\d)/, ".$1/$2")
+
+                //Coloca um hífen depois do bloco de quatro dígitos
+                v = v.replace(/(\d{4})(\d)/, "$1-$2")
+
+            }
+
+            return v
+        }
+    </script>
+@endpush

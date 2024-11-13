@@ -76,7 +76,4 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::post('/maritalstatus/add', [MaritalStatusController::class, 'Create'])->name('marital_status.create');
     Route::post("maritalstatus/store", [MaritalStatusController::class, 'Store'])->name('marital_status.store');
     Route::post("maritalstatus/delete", [MaritalStatusController::class, 'Destroy'])->name('marital_status.delete');
-    
-    
-
 }); // End Middleware

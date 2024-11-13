@@ -72,21 +72,22 @@ class MaritalStatusController extends Controller
         $maritalStatus = new Marital_status();
     }
 
-    public function maritalStatusDestroy(Request $request)
+    public function Destroy(Request $request)
     {
-
         $company = 1;
 
         $id = $request->id;
 
-        Marital_status::destroy($id);
+        $ok = Marital_status::destroy($id);
 
-        $request->session()
-            ->flash(
-                'mensagem',
-                'Contato $id removido com sucesso'
-            );
+        if ($ok) {
+            $request->session()
+                ->flash(
+                    'mensagem',
+                    'Contato $id removido com sucesso'
+                );
+        }
 
-        return ($id);
+        $this->show();
     }
 }
