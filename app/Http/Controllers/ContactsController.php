@@ -32,7 +32,7 @@ class ContactsController extends Controller
 
         $company = 1;
 
-        return view('contacts.contacts_add1');
+        return view('contacts.contacts_add');
     }
 
     public function contactsEdit($id)
