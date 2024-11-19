@@ -80,14 +80,12 @@ class MaritalStatusController extends Controller
 
         $ok = Marital_status::destroy($id);
 
-        if ($ok) {
-            $request->session()
-                ->flash(
-                    'mensagem',
-                    'Contato $id removido com sucesso'
-                );
-        }
+        $notification = array(
+            'mensagem' => 'Contato $id removido com sucesso',
+            'alert-type' => 'success'
 
-        $this->show();
+        );
+        
+        return redirect()->route('marital_status.show')->with($notification);
     }
 }
