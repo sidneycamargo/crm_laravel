@@ -3,39 +3,122 @@
 @section('admin')
     <div class="page-content">
         <!--breadcrumb-->
-        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Tables</div>
-            <div class="ps-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Marital Status</li>
-                    </ol>
-                </nav>
-            </div>
-            <div class="ms-auto">
-                <form action="{{ route('marital_status.create') }}" method="post">
-                    @csrf
-                    <button type="submit" class="btn btn-success">Add</button>
 
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Settings</button>
-                        <button type="button"
-                            class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                            data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                                href="javascript:;">Action</a>
-                            <a class="dropdown-item" href="javascript:;">Another action</a>
-                            <a class="dropdown-item" href="javascript:;">Something else here</a>
-                            <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated
-                                link</a>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center ms-auto">
+
+                            <div class="col-lg-5 col-xl-4">
+                                <form action="{{ route('marital_status.create') }}" method="post">
+                                    @csrf
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-success mb-3 mb-lg-0">
+                                            <i class='bx bxs-plus-square'></i>Add Status</button>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-primary">Settings</button>
+                                            <button type="button"
+                                                class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
+                                                data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle
+                                                    Dropdown</span>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a
+                                                    class="dropdown-item" href="javascript:;">Action</a>
+                                                <a class="dropdown-item" href="javascript:;">Another action</a>
+                                                <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                                <div class="dropdown-divider"></div> <a class="dropdown-item"
+                                                    href="javascript:;">Separated
+                                                    link</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <div class="col-lg-7 col-xl-8">
+                                <div>
+                                    <form class="float-lg-end">
+                                        <div class="row row-cols-lg-2 row-cols-xl-auto g-2">
+                                            <div class="position-relative">
+                                                <input type="text" class="form-control ps-5"
+                                                    placeholder="Search Product...">
+                                                <span class="position-absolute top-50 product-show translate-middle-y"><i
+                                                        class="bx bx-search"></i></span>
+                                            </div>
+
+                                            <div class="col">
+                                                <div class="btn-group" role="group"
+                                                    aria-label="Button group with nested dropdown">
+                                                    <button type="button" class="btn btn-white">Sort By</button>
+                                                    <div class="btn-group" role="group">
+                                                        <button id="btnGroupDrop1" type="button"
+                                                            class="btn btn-white dropdown-toggle dropdown-toggle-nocaret px-1"
+                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class='bx bx-chevron-down'></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                            <li><a class="dropdown-item" href="#">Dropdown link</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item" href="#">Dropdown link</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"
+                                                    aria-label="Button group with nested dropdown">
+                                                    <button type="button" class="btn btn-white">Collection Type</button>
+                                                    <div class="btn-group" role="group">
+                                                        <button id="btnGroupDrop1" type="button"
+                                                            class="btn btn-white dropdown-toggle dropdown-toggle-nocaret px-1"
+                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class='bx bxs-category'></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                            <li><a class="dropdown-item" href="#">Dropdown link</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item" href="#">Dropdown link</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-white">Price Range</button>
+                                                    <div class="btn-group" role="group">
+                                                        <button id="btnGroupDrop1" type="button"
+                                                            class="btn btn-white dropdown-toggle dropdown-toggle-nocaret px-1"
+                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class='bx bx-slider'></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-start"
+                                                            aria-labelledby="btnGroupDrop1">
+                                                            <li><a class="dropdown-item" href="#">Dropdown link</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item" href="#">Dropdown link</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
+
+
+
+
         <!--end breadcrumb-->
         <h6 class="mb-0 text-uppercase">Marital Status</h6>
         <hr />
@@ -94,6 +177,13 @@
         });
     </script>
     <script>
+        Lobibox.alert(
+            'error' //'error|success|warning|info', // Any of the following
+            {
+                ... //Options
+            }
+        );
+
         $(document).ready(function() {
             var table = $('#example2').DataTable({
                 lengthChange: false,

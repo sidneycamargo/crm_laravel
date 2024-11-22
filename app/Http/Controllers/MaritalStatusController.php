@@ -47,13 +47,17 @@ class MaritalStatusController extends Controller
             "female_name"           => $request->female,
         ]);
 
-
-        $data = [
+        $data = array(
             "id"      => $res->id,
-            "message" => "Saved with success!",
-        ];
+            'mensagem' => 'Contato salvo com sucesso',
+            'alert-type' => 'success'
 
-        return $data;
+        );
+
+        var_dump($data);
+        die();
+
+        return view('maritalStatus.maritalStatus_add');
     }
 
 
@@ -80,12 +84,12 @@ class MaritalStatusController extends Controller
 
         $ok = Marital_status::destroy($id);
 
-        $notification = array(
+        $data = array(
             'mensagem' => 'Contato $id removido com sucesso',
             'alert-type' => 'success'
 
         );
-        
-        return redirect()->route('marital_status.show')->with($notification);
+
+        return redirect()->route('marital_status.show')->with($data);
     }
 }

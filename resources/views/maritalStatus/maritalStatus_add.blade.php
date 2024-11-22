@@ -103,13 +103,47 @@
         }
 
         function cancelAdd() {
-            const cancelConfirmation = warning_noti('Confirma que deseja voltar? Ao voltar, poderá perder os dados')
 
-            if (cancelConfirmation) {
-                console.log('CancelAdd')
-            } else {
-                console.log('Not Canceled')
+            resConfirmation = Lobibox.alert('warning', { //AVAILABLE TYPES: "error", "info", "success", "warning"
+                    msg: 'Confirma cancelamento? Você pode perder as alterações.',
+                    //buttons: ['ok', 'cancel', 'yes', 'no'],
+                    //Or more powerfull way
+                    buttons: {
+                        ok: {
+                            'class': 'btn btn-success',
+                            closeOnClick: false
+                        },
+                        cancel: {
+                            'class': 'btn btn-danger',
+                            closeOnClick: false
+                        },
+
+                        /**
+                                    const cancelConfirmation = warning_noti('Confirma que deseja voltar? Ao voltar, poderá perder os dados')
+
+                                }
+                        */
+
+                    }
+                },
+                callback: function(lobibox, type) {
+                    var btnType;
+                    if (type === 'no') {
+                        btnType = 'warning';
+                    } else if (type === 'yes') {
+                        btnType = 'success';
+                    } else if (type === 'ok') {
+                        btnType = 'info';
+                    } else if (type === 'cancel') {
+                        btnType = 'error';
+                    }
+                    Lobibox.notify(btnType, {
+                            size: 'mini',
+                            msg: 'This is ' + btnType + ' message'
+                        }
+                    }
+
+                )
             }
-        }
     </script>
 @endpush
