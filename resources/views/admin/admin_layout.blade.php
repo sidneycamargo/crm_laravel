@@ -177,6 +177,10 @@
     <!-- Page Script-->
     @yield('script')
 
+    <!-- toastr CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <!-- toastr CSS -->
+
     <!--notification js -->
     <script src="{{ asset('backend') }}/assets/plugins/notifications/js/lobibox.min.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/notifications/js/notifications.min.js"></script>
@@ -195,7 +199,26 @@
     </script>
     -->
 
-    @stack('scripts')
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
 
 </body>
 

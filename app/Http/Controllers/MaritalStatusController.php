@@ -54,10 +54,8 @@ class MaritalStatusController extends Controller
 
         );
 
-        var_dump($data);
-        die();
-
-        return view('maritalStatus.maritalStatus_add');
+        //return redirect()->back()->with($data);
+        return route('marital_status.show');
     }
 
 
@@ -90,6 +88,6 @@ class MaritalStatusController extends Controller
 
         );
 
-        return redirect()->route('marital_status.show')->with($data);
+        return redirect()->back()->with($data);
     }
 }

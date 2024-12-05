@@ -15,23 +15,25 @@
                                     @csrf
                                     <div class="col">
                                         <button type="submit" class="btn btn-success mb-3 mb-lg-0">
-                                            <i class='bx bxs-plus-square'></i>Add Status</button>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-primary">Settings</button>
-                                            <button type="button"
-                                                class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                                                data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle
-                                                    Dropdown</span>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a
-                                                    class="dropdown-item" href="javascript:;">Action</a>
-                                                <a class="dropdown-item" href="javascript:;">Another action</a>
-                                                <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                                <div class="dropdown-divider"></div> <a class="dropdown-item"
-                                                    href="javascript:;">Separated
-                                                    link</a>
-                                            </div>
-                                        </div>
+                                            <i class='bx bxs-plus-square'></i>Add</button>
+                                        <!--
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-primary">Settings</button>
+                                                        <button type="button"
+                                                            class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
+                                                            data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle
+                                                                Dropdown</span>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a
+                                                                class="dropdown-item" href="javascript:;">Action</a>
+                                                            <a class="dropdown-item" href="javascript:;">Another action</a>
+                                                            <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                                            <div class="dropdown-divider"></div> <a class="dropdown-item"
+                                                                href="javascript:;">Separated
+                                                                link</a>
+                                                        </div>
+                                                    </div>
+                                                -->
 
                                     </div>
 
@@ -68,44 +70,52 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="btn-group" role="group"
-                                                    aria-label="Button group with nested dropdown">
-                                                    <button type="button" class="btn btn-white">Collection Type</button>
-                                                    <div class="btn-group" role="group">
-                                                        <button id="btnGroupDrop1" type="button"
-                                                            class="btn btn-white dropdown-toggle dropdown-toggle-nocaret px-1"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class='bx bxs-category'></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                                            <li><a class="dropdown-item" href="#">Dropdown link</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item" href="#">Dropdown link</a>
-                                                            </li>
-                                                        </ul>
+
+                                            <!-- COLLECTION TYPE
+                                                    
+                                                    <div class="col">
+                                                        <div class="btn-group" role="group"
+                                                            aria-label="Button group with nested dropdown">
+                                                            <button type="button" class="btn btn-white">Collection Type</button>
+                                                            <div class="btn-group" role="group">
+                                                                <button id="btnGroupDrop1" type="button"
+                                                                    class="btn btn-white dropdown-toggle dropdown-toggle-nocaret px-1"
+                                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    <i class='bx bxs-category'></i>
+                                                                </button>
+                                                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                                    <li><a class="dropdown-item" href="#">Dropdown link</a>
+                                                                    </li>
+                                                                    <li><a class="dropdown-item" href="#">Dropdown link</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-white">Price Range</button>
-                                                    <div class="btn-group" role="group">
-                                                        <button id="btnGroupDrop1" type="button"
-                                                            class="btn btn-white dropdown-toggle dropdown-toggle-nocaret px-1"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class='bx bx-slider'></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu dropdown-menu-start"
-                                                            aria-labelledby="btnGroupDrop1">
-                                                            <li><a class="dropdown-item" href="#">Dropdown link</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item" href="#">Dropdown link</a>
-                                                            </li>
-                                                        </ul>
+
+                                                -->
+                                            <!-- PRICE RANGE
+
+                                                    <div class="col">
+                                                        <div class="btn-group" role="group">
+                                                            <button type="button" class="btn btn-white">Price Range</button>
+                                                            <div class="btn-group" role="group">
+                                                                <button id="btnGroupDrop1" type="button"
+                                                                    class="btn btn-white dropdown-toggle dropdown-toggle-nocaret px-1"
+                                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    <i class='bx bx-slider'></i>
+                                                                </button>
+                                                                <ul class="dropdown-menu dropdown-menu-start"
+                                                                    aria-labelledby="btnGroupDrop1">
+                                                                    <li><a class="dropdown-item" href="#">Dropdown link</a>
+                                                                    </li>
+                                                                    <li><a class="dropdown-item" href="#">Dropdown link</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                -->
                                         </div>
                                     </form>
                                 </div>
@@ -120,6 +130,7 @@
 
 
         <!--end breadcrumb-->
+
         <h6 class="mb-0 text-uppercase">Marital Status</h6>
         <hr />
         <div class="card">
@@ -163,7 +174,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection
 
@@ -175,14 +185,7 @@
         $(document).ready(function() {
             $('#example').DataTable();
         });
-    </script>
-    <script>
-        Lobibox.alert(
-            'error' //'error|success|warning|info', // Any of the following
-            {
-                ... //Options
-            }
-        );
+
 
         $(document).ready(function() {
             var table = $('#example2').DataTable({
@@ -193,5 +196,14 @@
             table.buttons().container()
                 .appendTo('#example2_wrapper .col-md-6:eq(0)');
         });
+
+        /**
+        Lobibox.alert(
+            'error', //'error|success|warning|info', // Any of the following
+            {
+                ... //Options
+            }
+        );
+        */
     </script>
 @endsection
