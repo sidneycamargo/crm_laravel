@@ -8,9 +8,8 @@
                         <a href="javascript:cancelAdd()" type="button" class="btn btn-danger">Voltar</a>
                       -->
                         <button type="submit" class="btn btn-success">Salvar</button>
-                        <button type="submit" formaction="javascript:resetAdd()" class="btn btn-warning">Reset</button>
-                        <button type="submit" formaction="javascript:cancelAdd()"
-                            class="btn btn-danger">Voltar</button>
+                        <button type="reset" id="resetBtn" class="btn btn-warning">Reset</button>
+                        <button type="button" id="backBtn" class="btn btn-danger">Voltar</button>
                         <div>
                             <span></span>
                         </div>

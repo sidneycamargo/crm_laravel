@@ -35,8 +35,6 @@
 
                 </div>
             </div>
-
-            <x-menu-edit></x-menu-edit>
         </form>
 
     </div>
@@ -44,45 +42,8 @@
 
 @section('script')
     <script>
-        function sendPost(url, body) {
-            const request = new XMLHttpRequest()
-
-            request.onreadystatechange = function() {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        success_noti(JSON.parse(request.responseText).message);
-                    } else {
-                        warning_noti('Error: ' + this.status)
-                    }
-                }
-                return
-            }
-            request.open("POST", url, true)
-            request.setRequestHeader("Content-type", "application/json")
-            request.send(JSON.stringify(body))
-
-
-            if (document.getElementById("clearInputs").checked) {
-                document.getElementById("male").value = ""
-                document.getElementById("female").value = ""
-            }
-        }
-
-        function saveData() {
-            const url = "{{ route('marital_status.store') }}"
-            const _token = document.getElementById("_token").value
-            const male = document.getElementById("male").value
-            const female = document.getElementById("female").value
-            body = {
-                "_token": _token,
-                "male": male,
-                "female": female
-            }
-            sendPost(url, body)
-        }
-
-        function cancelAdd() {
-            console.log('cancelAdd')
-        }
+        document.getElementById("backBtn").addEventListener("click", function() {
+            history.back();
+        });
     </script>
 @endsection
