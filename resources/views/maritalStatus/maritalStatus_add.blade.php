@@ -6,7 +6,11 @@
         <!--Menu Add/Edit-->
         <form class="row g-3" method="POST" action="{{ route('marital_status.store') }}">
 
-            <x-menu-edit></x-menu-edit>
+            <x-menu-edit>
+                <x-slot:saveBtn>Salvar</x-slot>
+                <x-slot:resetBtn>Reset</x-slot>
+                <x-slot:backBtn>Voltar</x-slot>
+            </x-menu-edit>
 
             <div class="col-xl-6 mx-auto">
                 <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}" />

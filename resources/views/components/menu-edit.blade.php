@@ -7,9 +7,9 @@
                         <a href="javascript:saveData()" type="button" class="btn btn-success">Salvar</a>
                         <a href="javascript:cancelAdd()" type="button" class="btn btn-danger">Voltar</a>
                       -->
-                        <button type="submit" class="btn btn-success">Salvar</button>
-                        <button type="reset" id="resetBtn" class="btn btn-warning">Reset</button>
-                        <button type="button" id="backBtn" class="btn btn-danger">Voltar</button>
+                        <button type="submit" id="saveId" class="btn btn-success">{{ $saveBtn }}</button>
+                        <button type="reset" id="resetBtn" class="btn btn-warning">{{ $resetBtn }}</button>
+                        <button type="button" id="backBtn" class="btn btn-danger">{{ $backBtn }}</button>
                         <div>
                             <span></span>
                         </div>
