@@ -26,7 +26,7 @@
                                     placeholder="Estado Civil no Feminino">
                             </div>
                             <div class="col-md-6">
-                                <label for="female" class="form-label">No feminino</label>
+                                <label for="female" class="form-label">Feminino</label>
                                 <input type="text" class="form-control" id="female" name="female"
                                     placeholder="Estado civil no feminino">
                             </div>

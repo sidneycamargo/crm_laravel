@@ -48,14 +48,14 @@ class MaritalStatusController extends Controller
         ]);
 
         $data = array(
-            "id"      => $res->id,
-            'mensagem' => 'Contato salvo com sucesso',
-            'alert-type' => 'success'
+            'message' => 'Contato salvo com sucesso',
+            'alert-type' => 'success',
+            'id'      => $res->id
 
         );
 
-        //return redirect()->back()->with($data);
-        return route('marital_status.show');
+        //
+        return redirect()->route('marital_status.show')->with($data);
     }
 
 
@@ -74,20 +74,20 @@ class MaritalStatusController extends Controller
         $maritalStatus = new Marital_status();
     }
 
-    public function Destroy(Request $request)
+    public function Destroy($id)
     {
         $company = 1;
-
-        $id = $request->id;
 
         $ok = Marital_status::destroy($id);
 
         $data = array(
-            'mensagem' => 'Contato $id removido com sucesso',
+            'message' => "Contato $id removido com sucesso",
             'alert-type' => 'success'
 
         );
 
-        return redirect()->back()->with($data);
+        // return ("Entrou no Destroy com id -> " . $id);
+
+        // return redirect()->back()->with($data);
     }
 }

@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--favicon-->
     <link rel="icon" href="{{ asset('backend') }}/assets/images/favicon-32x32.png" type="image/png" />
     <!--plugins-->
@@ -33,6 +34,12 @@
     <link rel="stylesheet" href="{{ asset('backend') }}/assets/css/dark-theme.css" />
     <link rel="stylesheet" href="{{ asset('backend') }}/assets/css/semi-dark.css" />
     <link rel="stylesheet" href="{{ asset('backend') }}/assets/css/header-colors.css" />
+
+    <!-- toastr CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <!-- toastr CSS -->
+
+
     <title>CRM - BeC</title>
 </head>
 
@@ -165,41 +172,35 @@
     <!--end switcher-->
     <!-- Bootstrap JS -->
     <script src="{{ asset('backend') }}/assets/js/bootstrap.bundle.min.js"></script>
-    <!--plugins-->
+    <!-- plugins-->
     <script src="{{ asset('backend') }}/assets/js/jquery.min.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/simplebar/js/simplebar.min.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/metismenu/js/metisMenu.min.js"></script>
-    <script src="{{ asset('backend') }}/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/chartjs/js/chart.js"></script>
 
-    <!-- Page Script-->
-    @yield('script')
+    <script src="{{ asset('backend') }}/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 
-    <!-- toastr CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-    <!-- toastr CSS -->
+    <!-- Page Script-->
 
     <!--notification js -->
     <script src="{{ asset('backend') }}/assets/plugins/notifications/js/lobibox.min.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/notifications/js/notifications.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <!--
     <script src="{{ asset('backend') }}/assets/plugins/notifications/js/notification-custom-script.js"></script>
     -->
-    <!--app JS-->
+    <!-- app JS -->
     <script src="{{ asset('backend') }}/assets/js/app.js"></script>
 
     <!-- fontawesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/fontawesome.js"></script>
 
-    <!--
     <script>
-        new PerfectScrollbar(".app-container")
-    </script>
-    -->
-
-    <script>
+        // new PerfectScrollbar(".app-container")
+        // $('.app-container').perfectScrollbar();
         @if (Session::has('message'))
             var type = "{{ Session::get('alert-type', 'info') }}"
             switch (type) {
@@ -209,7 +210,6 @@
                 case 'success':
                     toastr.success(" {{ Session::get('message') }} ");
                     break;
-
                 case 'warning':
                     toastr.warning(" {{ Session::get('message') }} ");
                     break;
@@ -219,6 +219,9 @@
             }
         @endif
     </script>
+
+    @yield('script')
+
 
 </body>
 
