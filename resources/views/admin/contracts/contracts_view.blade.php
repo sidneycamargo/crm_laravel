@@ -1,1 +1,0 @@
-contracts_view_blade

@@ -9,7 +9,7 @@ use Illuminate\Support\Carbon;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class ContactsSeeder extends Seeder
+class EntitiesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,7 +20,7 @@ class ContactsSeeder extends Seeder
         $old_contacts = Tbl_contact_old::all();
 
         foreach ($old_contacts as $contacts) {
-            DB::table('contacts')->insert([
+            DB::table('entities')->insert([
                 'id' => $contacts->contact_id,
                 'name' => $contacts->contact_name,
                 'title' => $contacts->contact_title,

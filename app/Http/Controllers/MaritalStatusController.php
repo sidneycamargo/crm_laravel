@@ -35,8 +35,24 @@ class MaritalStatusController extends Controller
         return view('maritalStatus.maritalStatus_add');
     }
 
+    private function validateMaritalStatus(Request $request)
+    {
+        $validateData = $request->validate(
+            [
+                'male' => 'required|max:40',
+                'female' => 'required|max:40'
+            ],
+            [
+                'male.required' => 'This Male Name is required',
+                'female.required' => 'This Female Name is required'
+            ]
+        );
+    }
+
     public function store(Request $request)
     {
+        $this->validateMaritalStatus($request);
+
         $company_id = 1;
 
         $maritalStatus = new Marital_status();
@@ -62,17 +78,31 @@ class MaritalStatusController extends Controller
     public function edit($id)
     {
 
-        $contact = Marital_status::find($id);
+        $maritalStatus = Marital_status::findOrFail($id);
 
-        return view('maritalStatus.maritalStatus_edit', compact('contact'));
+        return view('maritalStatus.maritalStatus_edit', compact('maritalStatus'));
     }
 
-    public function maritalStatusUpdate(Request $request)
+    public function update(Request $request)
     {
+
+        $this->validateMaritalStatus($request);
+
         $company_id = 1;
 
-        $maritalStatus = new Marital_status();
-    }
+        $id = $request->id;
+
+        Marital_status::findOrFail($id)->update([
+            "masculine_name"        => $request->male,
+            "female_name"           => $request->female,
+        ]);
+
+        $data = array(
+            'message' => 'Contato salvo com sucesso',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('marital_status.show')->with($data);
+    } // End Method
 
     public function Destroy($id)
     {

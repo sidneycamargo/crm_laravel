@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompaniesController;
-use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\entitiesController;
 use App\Http\Controllers\ContractsController;
 use App\Http\Controllers\MaritalStatusController;
 use App\Http\Controllers\ProfileController;
@@ -46,15 +46,15 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
 
-    // MANAGER CONTACTS
-    Route::delete('/contacts/delete/{id}', [ContactsController::class, 'ContactsDestroy'])->name('contacts.delete');
+    // MANAGER entities
+    Route::delete('/entities/delete/{id}', [entitiesController::class, 'entitiesDestroy'])->name('entities.delete');
 
 
-    // CONTACTS
-    Route::get('/contacts/view', [ContactsController::class, 'ContactsView'])->name('contacts.view');
-    Route::get('/contacts/edit/{id}', [ContactsController::class, 'ContactsEdit'])->name('contacts.edit');
-    Route::post('/contacts/add', [ContactsController::class, 'ContactsAdd'])->name('contacts.add');
-    Route::post("contacts/store", [ContactsController::class, 'Store'])->name('contacts.store');
+    // entities
+    Route::get('/entities/view', [entitiesController::class, 'entitiesView'])->name('entities.view');
+    Route::get('/entities/edit/{id}', [entitiesController::class, 'entitiesEdit'])->name('entities.edit');
+    Route::post('/entities/add', [entitiesController::class, 'entitiesAdd'])->name('entities.add');
+    Route::post("entities/store", [entitiesController::class, 'Store'])->name('entities.store');
 
     // CONTRACTS
     Route::get('/admin/contracts/view', [ContractsController::class, 'ContractsView'])->name('admin.contracts.view');
@@ -75,5 +75,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::get('/maritalstatus/edit/{id}', [MaritalStatusController::class, 'Edit'])->name('marital_status.edit');
     Route::post('/maritalstatus/add', [MaritalStatusController::class, 'Create'])->name('marital_status.create');
     Route::post("maritalstatus/store", [MaritalStatusController::class, 'Store'])->name('marital_status.store');
+    Route::post("maritalstatus/update", [MaritalStatusController::class, 'Update'])->name('marital_status.update');
     Route::post("maritalstatus/delete/{id}", [MaritalStatusController::class, 'Destroy'])->name('marital_status.delete');
 }); // End Middleware

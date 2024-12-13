@@ -15,7 +15,7 @@
                 </nav>
             </div>
             <div class="ms-auto">
-                <form action="{{ route('contacts.add') }}" method="post">
+                <form action="{{ route('entities.add') }}" method="post">
                     @csrf
                     <button type="submit" class="btn btn-success">Add</button>
 
@@ -53,14 +53,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($contacts as $item)
+                            @foreach ($entities as $item)
                                 <tr>
                                     <td class="d-flex">
-                                        <form action="{{ route('contacts.edit', $item->id) }}" method="get">
+                                        <form action="{{ route('entities.edit', $item->id) }}" method="get">
                                             @csrf
                                             <button class="btn btn-warning lni lni-pencil-alt"></button>
                                         </form>
-                                        <form action="{{ route('contacts.delete', $item->id) }}" method="post">
+                                        <form action="{{ route('entities.delete', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="ms-2 btn btn-danger lni lni-trash"></button>

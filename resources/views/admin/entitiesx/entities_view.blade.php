@@ -1,0 +1,1 @@
+entities_view_blade

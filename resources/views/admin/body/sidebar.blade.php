@@ -53,7 +53,7 @@
                 <div class="menu-title">Cadastros</div>
             </a>
             <ul>
-                <li> <a href="{{ route('contacts.view') }}"><i class='bx bxs-contact'></i>Clientes</a>
+                <li> <a href="{{ route('entities.view') }}"><i class='bx bxs-contact'></i>Clientes</a>
                 </li>
                 <li> <a href="{{ route('marital_status.show') }}"><i class='bx bxs-contact'></i>Estado Civil</a>
                 </li>

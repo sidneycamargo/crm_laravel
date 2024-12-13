@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LeadSourcesSeeder::class);
         $this->call(OrganizationFieldsSeeder::class);
         $this->call(OrganizationsSeeder::class);
-        $this->call(ContactsSeeder::class);
-        
+        $this->call(EntitiesSeeder::class);
     }
 }
