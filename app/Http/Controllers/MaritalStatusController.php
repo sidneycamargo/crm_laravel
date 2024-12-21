@@ -19,6 +19,19 @@ class MaritalStatusController extends Controller
         return view('maritalStatus.maritalStatus_show', compact('maritalStatus'));
     }
 
+    public function getAjaxTableShow()
+    {
+        $company = 1;
+
+        $maritalStatus = Marital_Status::all();
+
+        echo "<pre>";
+        print_r($maritalStatus);
+        die();
+
+        return view('maritalStatus.maritalStatus_show', compact('maritalStatus'));
+    }
+
     public function list()
     {
         $company = 1;
