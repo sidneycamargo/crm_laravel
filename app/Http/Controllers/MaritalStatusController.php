@@ -25,11 +25,27 @@ class MaritalStatusController extends Controller
 
         $maritalStatus = Marital_Status::all();
 
-        echo "<pre>";
-        print_r($maritalStatus);
-        die();
+        $data = [];
 
-        return view('maritalStatus.maritalStatus_show', compact('maritalStatus'));
+        foreach ($maritalStatus as $item) {
+            $operator =
+                "<td class='d-flex'>
+                    <a href='" . route('marital_status.edit', $item->id) . "' 
+                        class='btn btn-warning rounded-pill waves-effect waves-light lni lni-pencil-alt'>Edit</a>
+                    <a href='#confirmDelete(" . $item->id . ")' class='btn btn-danger rounded-pill waves-effect waves-light lni lni-trash'>Delete</a>
+                </td>";
+            $data[] = [
+                $operator,
+                $item->masculine_name,
+                $item->female_name
+            ];
+        }
+
+        $res = [
+            'data' => $data
+        ];
+
+        return $res;
     }
 
     public function list()

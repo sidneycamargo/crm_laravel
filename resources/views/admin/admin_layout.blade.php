@@ -13,9 +13,12 @@
     <link href="{{ asset('backend') }}/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
     <link href="{{ asset('backend') }}/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
     <link href="{{ asset('backend') }}/assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-    <link href="{{ asset('backend') }}/assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('backend') }}/assets/plugins/notifications/css/lobibox.min.css" />
 
+    <!-- DataTable
+    <link href="{{ asset('backend') }}/assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    -->
+    <link href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" rel="stylesheet" />
 
     <!-- loader-->
     <link href="{{ asset('backend') }}/assets/css/pace.min.css" rel="stylesheet" />
@@ -172,8 +175,11 @@
     <!--end switcher-->
     <!-- Bootstrap JS -->
     <script src="{{ asset('backend') }}/assets/js/bootstrap.bundle.min.js"></script>
-    <!-- plugins-->
-    <script src="{{ asset('backend') }}/assets/js/jquery.min.js"></script>
+    <!-- plugins
+        <script src="{{ asset('backend') }}/assets/js/jquery.min.js"></script>
+    -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
     <script src="{{ asset('backend') }}/assets/plugins/simplebar/js/simplebar.min.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/metismenu/js/metisMenu.min.js"></script>
     <script src="{{ asset('backend') }}/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>

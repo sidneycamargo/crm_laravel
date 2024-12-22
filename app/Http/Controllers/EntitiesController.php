@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Entity;
+use Dotenv\Parser\Entry;
 use Illuminate\Http\Request;
 
 class entitiesController extends Controller
@@ -17,6 +18,56 @@ class entitiesController extends Controller
 
         return view('entities.entities_view', compact('entities'));
     }
+
+    public function getAjaxTableShow()
+    {
+        $company = 1;
+
+        $entity = Entity::all();
+
+        $data = [];
+
+        foreach ($entity as $item) {
+            $value = $item->itin;
+
+            $cpfPatern = preg_replace('/\D/', '', $value); // remove qq coisa q não seja numero
+            // verificar se é cpf (11) ou se é CNPJ (14)
+            if (strlen($cpfPatern) > 11) {
+                $cpfPatern = preg_replace('/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/', "$1.$2.$3/$4-$5", $cpfPatern);
+                //$cpfPatern = 'é cnpj';
+            } else {
+                $cpfPatern = preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', "$1.$2.$3-$4", $cpfPatern);
+            }
+
+            $phone = $item->phone;
+            $phonePatern = preg_replace('/\D/', '', $phone);
+            if (strlen($phone) > 10) {
+                $phonePatern = preg_replace('/(\d{2})(\d)(\d{4})(\d{4})/', "($1) $2 $3-$4", $phonePatern);
+            } else {
+                $phonePatern = preg_replace('/(\d{2})(\d{4})(\d{4})/', "($1) $2-$3", $phonePatern);
+            }
+
+
+            $operator =
+                "<td class='d-flex'>
+                    <a href='" . route('marital_status.edit', $item->id) . "' 
+                        class='btn btn-warning rounded-pill waves-effect waves-light lni lni-pencil-alt'>Edit</a>
+                    <a href='#confirmDelete(" . $item->id . ")' class='btn btn-danger rounded-pill waves-effect waves-light lni lni-trash'>Delete</a>
+                </td>";
+            $data[] = [
+                $operator,
+                $item->name,
+                $item->phone
+            ];
+        }
+
+        $res = [
+            'data' => $data
+        ];
+
+        return $res;
+    }
+
 
     public function EntityList()
     {

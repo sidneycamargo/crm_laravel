@@ -42,63 +42,19 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <table id="ajaxTable" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Operações</th>
-                                <th>CPF</th>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>E-mail</th>
+                                <th>operators</th>
+                                <th>name</th>
+                                <th>phone</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach ($entities as $item)
-                                <tr>
-                                    <td class="d-flex">
-                                        <form action="{{ route('entities.edit', $item->id) }}" method="get">
-                                            @csrf
-                                            <button class="btn btn-warning lni lni-pencil-alt"></button>
-                                        </form>
-                                        <form action="{{ route('entities.delete', $item->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="ms-2 btn btn-danger lni lni-trash"></button>
-                                        </form>
-                                    </td>
-                                    <?php
-                                    $value = $item->itin;
-                                    $cpfPatern = preg_replace('/\D/', '', $value); // remove qq coisa q não seja numero
-                                    // verificar se é cpf (11) ou se é CNPJ (14)
-                                    if (strlen($cpfPatern) > 11) {
-                                        $cpfPatern = preg_replace('/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/', "$1.$2.$3/$4-$5", $cpfPatern);
-                                        //$cpfPatern = 'é cnpj';
-                                    } else {
-                                        $cpfPatern = preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', "$1.$2.$3-$4", $cpfPatern);
-                                    }
-                                    
-                                    $phone = $item->phone;
-                                    $phonePatern = preg_replace('/\D/', '', $phone);
-                                    if (strlen($phone) > 10) {
-                                        $phonePatern = preg_replace('/(\d{2})(\d)(\d{4})(\d{4})/', "($1) $2 $3-$4", $phonePatern);
-                                    } else {
-                                        $phonePatern = preg_replace('/(\d{2})(\d{4})(\d{4})/', "($1) $2-$3", $phonePatern);
-                                    }
-                                    ?>
-                                    <td>{{ $cpfPatern }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $phonePatern }}</td>
-                                    <td>{{ $item->email }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
                         <tfoot>
                             <tr>
-                                <th>Operações</th>
-                                <th>CPF</th>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>E-mail</th>
+                                <th>operators</th>
+                                <th>name</th>
+                                <th>phone</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -110,22 +66,25 @@
 @endsection
 
 @section('script')
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <!-- Data Table JS -->
-    <script src="{{ asset('backend') }}/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('backend') }}/assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#example').DataTable();
-        });
-
-        $(document).ready(function() {
-            var table = $('#example2').DataTable({
-                lengthChange: false,
-                buttons: ['copy', 'excel', 'pdf', 'print']
+            var table = new DataTable('#ajaxTable', {
+                layout: {
+                    topStart: {
+                        pageLength: {
+                            menu: [5, 10, 25, 50, 100]
+                        }
+                    }
+                },
+                ajax: '{{ route('entities.get_ajax_table_show') }}',
+                columnDefs: [{
+                    data: null,
+                }]
             });
 
-            table.buttons().container()
-                .appendTo('#example2_wrapper .col-md-6:eq(0)');
+
         });
     </script>
 @endsection

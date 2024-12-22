@@ -52,6 +52,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
     // entities
     Route::get('/entities/view', [entitiesController::class, 'entitiesView'])->name('entities.view');
+    Route::get('/entities/getAjaxTableShow', [entitiesController::class, 'getAjaxTableShow'])->name('entities.get_ajax_table_show');
     Route::get('/entities/edit/{id}', [entitiesController::class, 'entitiesEdit'])->name('entities.edit');
     Route::post('/entities/add', [entitiesController::class, 'entitiesAdd'])->name('entities.add');
     Route::post("entities/store", [entitiesController::class, 'Store'])->name('entities.store');
