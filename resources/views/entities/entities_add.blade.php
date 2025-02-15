@@ -16,7 +16,7 @@
                         <div class="row p-0 ml-0 mr-0 mb-0">
                             <div class="col-md-3">
                                 <label for="name" class="form-label">CPF/CNPJ</label>
-                                <input type="text" class="form-control" id="itin" name="itin" maxlength="18"
+                                <input type="text" class="form-control" id="ssn" name="ssn" maxlength="18"
                                     onkeypress="mascaraMutuario(this,cpfCnpj)" placeholder="CPF/CNPJ">
                             </div>
                             <div class="col-md-7">

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('sex', ['Masculin', 'Feminin'])->default('Masculin');
             $table->enum('document_type', ['RG/ID', 'Passport', 'RNE'])->default('RG/ID');
             $table->string('document', 45)->nullable();
-            $table->string('itin', 45)->nullable();
+            $table->string('ssn', 45)->nullable();
             $table->string('email', 150)->nullable();
             $table->string('phone', 20)->nullable();
             $table->string('zip', 9)->nullable();

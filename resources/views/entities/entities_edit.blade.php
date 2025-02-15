@@ -11,7 +11,7 @@
                         <div class="col-md-3">
                             <label for="name" class="form-label">CPF/CNPJ</label>
                             <input type="text" class="form-control" id="name" placeholder="First Name"
-                                value={{ $entity->itin }}>
+                                value={{ $entity->ssn }}>
                         </div>
                         <div class="col-md-7">
                             <label for="name" class="form-label">Name</label>

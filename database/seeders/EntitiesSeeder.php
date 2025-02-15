@@ -41,7 +41,7 @@ class EntitiesSeeder extends Seeder
 
                 'document_type' => 'RG/ID',
                 'document' => $contacts->contact_document,
-                'itin' => $contacts->contact_document_itin,
+                'ssn' => $contacts->contact_document_itin,
                 'mkt_position' => $contacts->contact_mkt_position,
                 'birth_date' => $contacts->contact_birth_date,
 

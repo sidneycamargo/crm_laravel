@@ -74,7 +74,7 @@
             const DATATABLE_PTBR = {
                 "sEmptyTable": "Nenhum registro encontrado",
                 "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                "infoEmpty": "Mostrando 0 até 0 de 0 registros",
+                "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
                 "sInfoFiltered": "(Filtrados de _MAX_ registros)",
                 "sInfoPostFix": "",
                 "sInfoThousands": ".",
@@ -84,16 +84,10 @@
                 "sZeroRecords": "Nenhum registro encontrado",
                 "sSearch": "Pesquisar",
                 "oPaginate": {
-                    "sNext": "Próximo",
-                    "sPrevious": "Anterior",
                     "sFirst": "Primeiro",
-                    "sLast": "Último"
-                },
-                "paginate": {
-                    "first": "Primeiro",
-                    "last": "Last",
-                    "next": "Next",
-                    "previous": "Previous"
+                    "sLast": "Último",
+                    "sNext": "Próximo",
+                    "sPrevious": "Anterior"
                 },
                 "oAria": {
                     "sSortAscending": ": Ordenar colunas de forma ascendente",
@@ -109,13 +103,16 @@
             }
 
             var table = new DataTable('#ajaxTable', {
-                language: {
-                    info: 'Showing1 page _PAGE_ of _PAGES_',
-                    infoEmpty: 'No records available',
-                    infoFiltered: '(filtered from _MAX_ total records)',
-                    lengthMenu: 'Display _MENU_ records per page',
-                    zeroRecords: 'Nothing found - sorry'
-                }
+                language: DATATABLE_PTBR,
+                /**
+                    {
+                        info: 'Showing page _PAGE_ of _PAGES_',
+                        infoEmpty: 'No records available',
+                        infoFiltered: '(filtered from _MAX_ total records)',
+                        lengthMenu: 'Exibindo _MENU_ records per page',
+                        zeroRecords: 'Nothing found - sorry'
+                    },
+                */
                 layout: {
                     topStart: {
                         pageLength: {

@@ -28,7 +28,7 @@ class entitiesController extends Controller
         $data = [];
 
         foreach ($entity as $item) {
-            $value = $item->itin;
+            $value = $item->ssn;
 
             $cpfPatern = preg_replace('/\D/', '', $value); // remove qq coisa q não seja numero
             // verificar se é cpf (11) ou se é CNPJ (14)
@@ -99,7 +99,7 @@ class entitiesController extends Controller
         $company_id = 1;
 
         // $entities = Entity::where('Entity_id', 2)->first();
-        Entity::insert('insert into entities (company_id, name, itin) values (?, ?, ?)', [$company_id, 'Dayle', '111.111.111-11']);
+        Entity::insert('insert into entities (company_id, name, ssn) values (?, ?, ?)', [$company_id, 'Dayle', '111.111.111-11']);
 
         return $request;
     }
@@ -118,7 +118,7 @@ class entitiesController extends Controller
         $entities->sex                  = $request->sex;
         $entities->document_type        = $request->document_type;
         $entities->document             = $request->document;
-        $entities->itin                 = $request->itin;
+        $entities->ssn                  = $request->ssn;
         $entities->$entities->email     = $request->email;
         $entities->phone                = $request->phone;
         $entities->zip                  = $request->zip;
