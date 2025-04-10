@@ -74,16 +74,16 @@
                         <table id="ajaxTable" class="display" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
+                                    <th>Masculin</th>
+                                    <th>Feminin</th>
+                                    <th>Operation</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
+                                    <th>Masculin</th>
+                                    <th>Feminin</th>
+                                    <th>Operation</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -96,44 +96,6 @@
 
 
 <?php
-/**
-                        <table id="ajaxTable" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Operations</th>
-                                    <th>male_name</th>
-                                    <th>female_name</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Operations</th>
-                                    <th>male_name</th>
-                                    <th>female_name</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                            <tbody>
-                                @foreach ($maritalStatus as $item)
-                                    <tr>
-                                        <td class="d-flex">
-                                            <a href="{{ route('marital_status.edit', $item->id) }}"
-                                                class="btn btn-warning rounded-pill waves-effect waves-light lni lni-pencil-alt">
-                                                Edit</a>
-                                            <a href="#"
-                                                class="btn btn-danger rounded-pill waves-effect waves-light lni lni-trash">
-                                                Delete</a>
-                                            <form action="javascript:confirmDelete( {{ $item->id }} )">
-                                                <button class="ms-2 btn btn-danger lni lni-trash"></button>
-                                            </form>
-                                        </td>
-                                        <td>{{ $item->masculine_name }}</td>
-                                        <td>{{ $item->female_name }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
- 
-*/
 ?>
 
 @section('script')
